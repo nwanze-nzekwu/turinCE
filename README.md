@@ -1,13 +1,56 @@
 # turinCE - FSO Channel Power Estimation
 
-## New: Gradient Boosting Models (XGBoost & LightGBM) 🚀
+## New: Deep Learning Models (LSTM, GRU, Transformer) 🚀🔥
+
+State-of-the-art deep learning architectures with PyTorch for time series forecasting!
+
+**Quick Start**: See [deep_learning_README.md](deep_learning_README.md)  
+**Run Evaluation**: `python run_deep_learning_evaluation.py --tune`
+
+### Latest Features
+- **LSTM** with bidirectional and unidirectional variants (1-3 layers)
+- **GRU** with similar architecture flexibility
+- **Transformer** with multi-head attention and positional encoding
+- Sequence-to-point and sequence-to-sequence architectures
+- Automatic hyperparameter tuning (random search)
+- GPU/CPU compatibility with automatic detection
+- Early stopping, learning rate scheduling, gradient clipping
+- Model checkpointing and reproducibility
+
+### Quick Example
+```python
+from data_preparation import load_turbulence_data
+from config import get_config
+from deep_learning_models import DeepLearningForecaster
+
+# Load data
+config = get_config('strong')
+data, metadata = load_turbulence_data('strong', config)
+
+# Create and train LSTM
+forecaster = DeepLearningForecaster(
+    model_type='lstm',
+    lookback=100,
+    horizon=50,
+    use_gpu=True
+)
+
+datasets = forecaster.prepare_data(data)
+forecaster.train(datasets['train'][0], datasets['train'][1],
+                datasets['val'][0], datasets['val'][1])
+result = forecaster.evaluate(datasets['test'][0], datasets['test'][1])
+```
+
+---
+
+## Gradient Boosting Models (XGBoost & LightGBM) ⚡
 
 Advanced gradient boosting implementations with comprehensive hyperparameter tuning and multi-horizon evaluation.
 
 **Quick Start**: See [GRADIENT_BOOSTING_README.md](GRADIENT_BOOSTING_README.md)  
 **Run Evaluation**: `python run_gradient_boosting_evaluation.py --tune`
 
-### Latest Features
+### Features
 - **XGBoost** regression with GPU acceleration support
 - **LightGBM** regression optimized for large datasets
 - Systematic hyperparameter tuning (50+ parameter combinations)
@@ -65,13 +108,17 @@ train_X, train_y = datasets[5]['train']
 pip install numpy pandas scipy scikit-learn statsmodels matplotlib
 ```
 
+### Deep Learning Models
+```bash
+pip install torch>=1.10.0
+# Or use requirements file
+pip install -r requirements_deep_learning.txt
+```
+
 ### Gradient Boosting Models
 ```bash
 pip install xgboost lightgbm
-```
-
-Or use the requirements file:
-```bash
+# Or use requirements file
 pip install -r requirements_gradient_boosting.txt
 ```
 
@@ -88,16 +135,22 @@ python test_pipeline.py
 .
 ├── config.py                              # Configuration system
 ├── data_preparation.py                    # Data pipeline (Task #77)
+├── deep_learning_models.py                # LSTM, GRU, Transformer (Task #80)
 ├── gradient_boosting_models.py            # XGBoost & LightGBM (Task #79)
 ├── model_evaluation.py                    # Model comparison utilities
-├── run_gradient_boosting_evaluation.py    # Complete evaluation script
+├── run_deep_learning_evaluation.py        # Deep learning evaluation script
+├── run_gradient_boosting_evaluation.py    # Gradient boosting evaluation script
 ├── example_usage.py                       # Usage examples
 ├── test_pipeline.py                       # Verification tests
+├── deep_learning_README.md                # Deep learning documentation
 ├── GRADIENT_BOOSTING_README.md            # Gradient boosting documentation
 ├── data_pipeline_README.md                # Data pipeline documentation
 ├── QUICK_START.md                         # Quick start guide
 ├── IMPLEMENTATION_SUMMARY.md              # Implementation details
-└── requirements_gradient_boosting.txt     # Dependencies
+├── requirements_deep_learning.txt         # PyTorch dependencies
+├── requirements_gradient_boosting.txt     # XGBoost/LightGBM dependencies
+├── models/                                # Saved model checkpoints
+└── results/                               # Evaluation results (CSV)
 ```
 
 ---
@@ -105,12 +158,19 @@ python test_pipeline.py
 ## Quick Links
 
 ### Documentation
+- [Deep Learning Models](deep_learning_README.md) - LSTM, GRU, Transformer implementation
 - [Gradient Boosting Models](GRADIENT_BOOSTING_README.md) - XGBoost & LightGBM implementation
 - [Data Pipeline](data_pipeline_README.md) - Feature engineering and data preparation
 - [Quick Start Guide](QUICK_START.md) - Get up and running quickly
 - [Implementation Summary](IMPLEMENTATION_SUMMARY.md) - Technical details
 
-### Usage
+### Usage - Deep Learning
+- Run complete evaluation: `python run_deep_learning_evaluation.py --tune`
+- Specific models: `python run_deep_learning_evaluation.py --models lstm gru`
+- Custom horizons: `python run_deep_learning_evaluation.py --horizons 50 100 200 500`
+- CPU only: `python run_deep_learning_evaluation.py --no-gpu`
+
+### Usage - Gradient Boosting
 - Run complete evaluation: `python run_gradient_boosting_evaluation.py --tune`
 - With GPU: `python run_gradient_boosting_evaluation.py --use-gpu`
 - Specific models: `python run_gradient_boosting_evaluation.py --models xgboost lightgbm`
@@ -155,6 +215,18 @@ Based on Task #79 specifications:
 - Feature importance extraction
 - Comparison visualizations
 
+### Task #80: Deep Learning Models ✓
+- LSTM (bidirectional/unidirectional, 1-3 layers)
+- GRU (similar architecture variations)
+- Transformer (encoder-only with positional encoding)
+- Sequence-to-point and sequence-to-sequence architectures
+- Data windowing and efficient batching (PyTorch DataLoader)
+- Hyperparameter tuning framework (random search)
+- Early stopping, learning rate scheduling, gradient clipping
+- GPU/CPU compatibility with automatic detection
+- Model checkpointing and reproducibility
+- Multi-horizon evaluation (50, 100, 200, 500+ samples)
+
 ---
 
-See [QUICK_START.md](QUICK_START.md) and [GRADIENT_BOOSTING_README.md](GRADIENT_BOOSTING_README.md) for detailed usage.
+See [deep_learning_README.md](deep_learning_README.md), [GRADIENT_BOOSTING_README.md](GRADIENT_BOOSTING_README.md), and [QUICK_START.md](QUICK_START.md) for detailed usage.

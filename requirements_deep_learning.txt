@@ -1,0 +1,20 @@
+# Deep Learning Models Dependencies
+# For FSO Channel Power Estimation
+
+# Core dependencies (should already be installed from Task #77)
+numpy>=1.20.0
+pandas>=1.3.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+matplotlib>=3.4.0
+
+# Deep Learning Framework
+torch>=1.10.0
+
+# Optional: For GPU acceleration
+# Install CUDA-enabled PyTorch from: https://pytorch.org/get-started/locally/
+# Example for CUDA 11.8:
+# pip install torch --index-url https://download.pytorch.org/whl/cu118
+
+# Note: The code will automatically detect and use GPU if available,
+# but will fall back to CPU if CUDA is not installed.
