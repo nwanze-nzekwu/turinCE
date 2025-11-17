@@ -1,51 +1,6 @@
 # turinCE - FSO Channel Power Estimation
 
-## ⭐ NEW: Comprehensive Model Evaluation Framework (Task #82) ⭐
-
-**Complete comparison of ALL models across multiple horizons with publication-quality visualizations!**
-
-**Quick Start**: See [EVALUATION_QUICK_START.md](EVALUATION_QUICK_START.md)  
-**Run Everything**: `python run_comprehensive_evaluation.py`
-
-### What's Included
-- ✅ **8 Models**: Naive, Linear Regression, Random Forest, XGBoost, LightGBM, LSTM, GRU, Transformer
-- ✅ **4 Horizons**: 50, 100, 200, 500 samples (5-50ms prediction windows)
-- ✅ **Comprehensive Metrics**: RMSE, MAE, R², training time, inference speed, residual variance
-- ✅ **6 Visualizations**: RMSE trends, speed/accuracy tradeoff, inference speed, variance, complexity, R²
-- ✅ **Detailed Report**: Best models per criterion, rankings, recommendations, insights
-- ✅ **One Command**: Complete evaluation in 30-90 minutes
-
-### Quick Example
-```bash
-# Run everything with default settings
-python run_comprehensive_evaluation.py
-
-# Or customize
-python comprehensive_model_evaluation.py \
-    --models xgboost lightgbm lstm \
-    --horizons 50 100 200 500 \
-    --output-dir my_results
-```
-
-### Output
-```
-results/
-├── comparison_table.csv                    # Complete results table
-├── evaluation_summary.md                   # Detailed findings & recommendations
-└── model_comparison_plots/
-    ├── rmse_vs_horizon.png                # Primary comparison
-    ├── training_time_vs_rmse.png          # Speed/accuracy tradeoff
-    ├── inference_speed_comparison.png     # Deployment metrics
-    ├── residual_variance_comparison.png   # Stability analysis
-    ├── model_complexity_comparison.png    # Model size comparison
-    └── r2_score_comparison.png            # Explained variance
-```
-
-**See [EVALUATION_FRAMEWORK_README.md](EVALUATION_FRAMEWORK_README.md) for complete documentation**
-
----
-
-## Deep Learning Models (LSTM, GRU, Transformer) 🚀
+## New: Deep Learning Models (LSTM, GRU, Transformer) 🚀🔥
 
 State-of-the-art deep learning architectures with PyTorch for time series forecasting!
 
@@ -178,32 +133,24 @@ python test_pipeline.py
 
 ```
 .
-├── config.py                                 # Configuration system
-├── data_preparation.py                       # Data pipeline (Task #77)
-├── deep_learning_models.py                   # LSTM, GRU, Transformer (Task #81)
-├── gradient_boosting_models.py               # XGBoost & LightGBM (Task #79)
-├── model_evaluation.py                       # Visualization & reporting utilities (Task #82)
-├── comprehensive_model_evaluation.py         # Unified evaluation script (Task #82) ⭐
-├── run_comprehensive_evaluation.py           # One-command evaluation pipeline (Task #82) ⭐
-├── run_deep_learning_evaluation.py           # Deep learning evaluation script
-├── run_gradient_boosting_evaluation.py       # Gradient boosting evaluation script
-├── example_usage.py                          # Usage examples
-├── test_pipeline.py                          # Verification tests
-├── deep_learning_README.md                   # Deep learning documentation
-├── GRADIENT_BOOSTING_README.md               # Gradient boosting documentation
-├── data_pipeline_README.md                   # Data pipeline documentation
-├── EVALUATION_FRAMEWORK_README.md            # Comprehensive evaluation guide (Task #82) ⭐
-├── EVALUATION_QUICK_START.md                 # Quick evaluation guide (Task #82) ⭐
-├── EXAMPLE_evaluation_summary.md             # Sample output format (Task #82) ⭐
-├── QUICK_START.md                            # Quick start guide
-├── IMPLEMENTATION_SUMMARY.md                 # Implementation details
-├── requirements_deep_learning.txt            # PyTorch dependencies
-├── requirements_gradient_boosting.txt        # XGBoost/LightGBM dependencies
-├── models/                                   # Saved model checkpoints
-└── results/                                  # Evaluation results (Task #82)
-    ├── comparison_table.csv                  # Complete results table
-    ├── evaluation_summary.md                 # Detailed findings report
-    └── model_comparison_plots/               # 6 visualization files
+├── config.py                              # Configuration system
+├── data_preparation.py                    # Data pipeline (Task #77)
+├── deep_learning_models.py                # LSTM, GRU, Transformer (Task #80)
+├── gradient_boosting_models.py            # XGBoost & LightGBM (Task #79)
+├── model_evaluation.py                    # Model comparison utilities
+├── run_deep_learning_evaluation.py        # Deep learning evaluation script
+├── run_gradient_boosting_evaluation.py    # Gradient boosting evaluation script
+├── example_usage.py                       # Usage examples
+├── test_pipeline.py                       # Verification tests
+├── deep_learning_README.md                # Deep learning documentation
+├── GRADIENT_BOOSTING_README.md            # Gradient boosting documentation
+├── data_pipeline_README.md                # Data pipeline documentation
+├── QUICK_START.md                         # Quick start guide
+├── IMPLEMENTATION_SUMMARY.md              # Implementation details
+├── requirements_deep_learning.txt         # PyTorch dependencies
+├── requirements_gradient_boosting.txt     # XGBoost/LightGBM dependencies
+├── models/                                # Saved model checkpoints
+└── results/                               # Evaluation results (CSV)
 ```
 
 ---
@@ -211,19 +158,11 @@ python test_pipeline.py
 ## Quick Links
 
 ### Documentation
-- [⭐ Comprehensive Evaluation](EVALUATION_FRAMEWORK_README.md) - Complete model comparison (Task #82)
-- [⭐ Evaluation Quick Start](EVALUATION_QUICK_START.md) - Fast evaluation guide (Task #82)
 - [Deep Learning Models](deep_learning_README.md) - LSTM, GRU, Transformer implementation
 - [Gradient Boosting Models](GRADIENT_BOOSTING_README.md) - XGBoost & LightGBM implementation
 - [Data Pipeline](data_pipeline_README.md) - Feature engineering and data preparation
 - [Quick Start Guide](QUICK_START.md) - Get up and running quickly
 - [Implementation Summary](IMPLEMENTATION_SUMMARY.md) - Technical details
-
-### Usage - Comprehensive Evaluation ⭐
-- **Run everything**: `python run_comprehensive_evaluation.py`
-- Custom models: `python comprehensive_model_evaluation.py --models xgboost lightgbm lstm`
-- Fast evaluation: `python comprehensive_model_evaluation.py --models naive linear_regression random_forest`
-- With tuning: `python comprehensive_model_evaluation.py --tune-gb --tune-dl`
 
 ### Usage - Deep Learning
 - Run complete evaluation: `python run_deep_learning_evaluation.py --tune`
@@ -276,7 +215,7 @@ Based on Task #79 specifications:
 - Feature importance extraction
 - Comparison visualizations
 
-### Task #81: Deep Learning Models ✓
+### Task #80: Deep Learning Models ✓
 - LSTM (bidirectional/unidirectional, 1-3 layers)
 - GRU (similar architecture variations)
 - Transformer (encoder-only with positional encoding)
@@ -288,18 +227,6 @@ Based on Task #79 specifications:
 - Model checkpointing and reproducibility
 - Multi-horizon evaluation (50, 100, 200, 500+ samples)
 
-### Task #82: Comprehensive Model Evaluation ✓
-- **Unified evaluation framework** for all model types
-- **8 models evaluated**: Naive, Linear Regression, Random Forest, XGBoost, LightGBM, LSTM, GRU, Transformer
-- **Multiple horizons**: 50, 100, 200, 500 samples (5-50ms)
-- **Comprehensive metrics**: RMSE, MAE, R², training time, inference speed, residual variance, model complexity
-- **6 publication-quality visualizations**: RMSE trends, speed/accuracy tradeoff, inference speed, variance, complexity, R²
-- **Detailed summary report**: Best models per criterion, rankings, performance trends, recommendations
-- **Extensible design**: Easy to add new models or turbulence conditions
-- **One-command execution**: Complete pipeline with `run_comprehensive_evaluation.py`
-- **Statistical significance** assessment where applicable
-- **Reproducible results** with fixed random seeds
-
 ---
 
-See [EVALUATION_FRAMEWORK_README.md](EVALUATION_FRAMEWORK_README.md) for comprehensive evaluation guide, [deep_learning_README.md](deep_learning_README.md), [GRADIENT_BOOSTING_README.md](GRADIENT_BOOSTING_README.md), and [QUICK_START.md](QUICK_START.md) for detailed usage.
+See [deep_learning_README.md](deep_learning_README.md), [GRADIENT_BOOSTING_README.md](GRADIENT_BOOSTING_README.md), and [QUICK_START.md](QUICK_START.md) for detailed usage.
